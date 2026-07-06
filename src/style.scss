@@ -7,16 +7,44 @@
   box-sizing: border-box;
 }
 
+$brown-dark: #4e342e;
+$brown: #6d4c41;
+$brown-light: #8d6e63;
+$cream: #f5f0eb;
+$white: white;
+$shadow: rgba(49, 4, 4, 0.625);
+
 
 nav, header, main, footer, section{
   width: 100%;
 }
+
+
+.accordion-item{
+
+    background:rgba(47, 0, 0, 0.178);
+    margin-bottom:15px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 10px 20px $shadow;
+}
+
+.accordion-content{
+
+    background:white;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .5s ease;
+
+}
+
 
 section{
   display: flex;
   flex-direction: column;
   row-gap: 4rem;
   padding: 4rem 0;
+  
   h2{
   align-self:  center;
   font-size: 3rem;
@@ -24,11 +52,43 @@ section{
   }
 }
 
+.carousel {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.accordion-section {
+  align-items: center;
+  padding-inline: 1rem;
+}
+
+.accordion-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
 .navbar{
   position: fixed;
   top: 0;
   z-index: 9999;
+
+  .nav-link {
+    color: #4e342e;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+
+    &:hover{
+      color: #6d4c41;
+    }
+
+    &.active {
+      color: #fff;
+      background-color: #6d4c41;
+    }
+  }
 }
 
 header{
@@ -39,8 +99,8 @@ header{
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: clamp(1rem, 6vw, 6rem);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: clamp(2rem, 6vw, 6rem);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-shadow: 0 0 10px rgba(0, 0, 0, 50);
     }
   >img{
@@ -60,21 +120,41 @@ header{
 
 .card {
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
   margin: 30px;
-  width: 500px;
+  width: min(100%, 500px);
   padding: 24px;
   background-color: #ffffff;
-  border-radius: 30px;
+  border-radius: 10px;
   text-align: center;
-
- 
+  overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
-
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 16px;
+    border-radius: 20px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   &__title {
@@ -100,13 +180,7 @@ header{
   }
 }
 
-.accordion{
-    display: flex;
-    gap: 3rem;
-    justify-content: center;
-    width:700px;
-    max-width:90%;
-}
+
 
 
 
